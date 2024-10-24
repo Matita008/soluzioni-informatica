@@ -29,7 +29,7 @@ cout<<"Il risultato è "<<ris<<"\n";//restituisco il risultato
 else{//caso normale, 2 risultati distinti
 int sq=sqrt(delta);
 int ris1=-(b+sq)/(2*a);//risolvo
-int ris2=c;
+int ris2=-(b-sq)/(2*a);
 cout<<"I risultati sono "<<ris1<<" & "<<ris2<<"\n";//restituisco i risultati
 }
 }
