@@ -1,6 +1,6 @@
 #include <iostream>
 
-using namespace std
+using namespace std;
 
 int main() {
   int a,b,c;//inizializzo 3 variabili (a,b,c) per memorizzare i coefficienti di un equazione ax^2+bc+c=0
@@ -12,7 +12,7 @@ cin>>b;
 cout<<"\nInserisci il termine noto\n";
 cin>>c;
 // non è un'equazione di secondo grado, segnalo e risolvo
-if(a==0)){
+if(a==0){
 cout<<"il coefficiente di x^2 è nullo(0), pertanto l'equazione è di primo grado\n";//segnalo
 int ris=c/b;//risolvo
 cout<<"Il risultato è "<<ris<<"\n";//restituisco il risultato
