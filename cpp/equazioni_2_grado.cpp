@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
@@ -16,6 +17,7 @@ if(a==0){
 cout<<"il coefficiente di x^2 è nullo(0), pertanto l'equazione è di primo grado\n";//segnalo
 int ris=c/b;//risolvo
 cout<<"Il risultato è "<<ris<<"\n";//restituisco il risultato
+cin>>a;
 return ris;//termino il programma ritornando il risultato
 }
 int delta=b*b+(4*a*c);
@@ -32,4 +34,5 @@ int ris1=-(b+sq)/(2*a);//risolvo
 int ris2=-(b-sq)/(2*a);
 cout<<"I risultati sono "<<ris1<<" & "<<ris2<<"\n";//restituisco i risultati
 }
+cin>>a;
 }
