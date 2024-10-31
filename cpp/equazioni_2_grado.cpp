@@ -14,15 +14,15 @@ int main() {
 	cin>>c;
 	// non è un'equazione di secondo grado, segnalo e risolvo
 	if(a==0){
-		cout<<"il coefficiente di x^2 e' nullo(0), pertanto l'equazione è di primo grado\n";//segnalo
-		int ris=c/b;//risolvo
+		cout<<"il coefficiente di x^2 e' nullo(0), pertanto l'equazione e' di primo grado\n";//segnalo
+		int ris=c/b;//risolvo.
 		cout<<"Il risultato e' "<<ris<<"\n";//restituisco il risultato
 		cin>>a;
 		return ris;//termino il programma ritornando il risultato
 	}
-	int delta=b*b+(4*a*c);
+	int delta=b*b-(4*a*c);
 	if(delta<0){//eq. impossibile
-		cout<<"L'equazione fornita e' impossibile poiché delta ("<<delta<<") è negativo\n";
+		cout<<"L'equazione fornita e' impossibile poiche' delta ("<<delta<<") e' negativo\n";
 	} else if(delta == 0){//solo un risultato 
 		int ris=-b/(2*b);//risolvo
 		cout<<"Il risultato e' "<<ris<<"\n";//restituisco il risultato
@@ -32,5 +32,7 @@ int main() {
 		int ris2=-(b-sq)/(2*a);
 		cout<<"I risultati sono "<<ris1<<" & "<<ris2<<"\n";//restituisco i risultati
 	}
+	cout<<"premi un tasto per uscire";
 	cin>>a;
+	return a;
 }
