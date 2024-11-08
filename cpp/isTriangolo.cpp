@@ -8,7 +8,7 @@ int main() {
 	cout<<"Inserisci i tre valori  separati da uno spazio \" \"\n";
 	cin>>a>>b>>c;
 	
-	if((a + b) < c && (c + a) < b && (b + c) < a) cout<<a<<", "<<b<<", "<<b<<"\tFormano un triangolo";
+	if((a + b) > c && (c + a) > b && (b + c) > a) cout<<a<<", "<<b<<", "<<b<<"\tFormano un triangolo";
 	else cout<<a<<", "<<b<<", "<<c<<"\tNon formano un triangolo";
 	
 	cout<<endl;
