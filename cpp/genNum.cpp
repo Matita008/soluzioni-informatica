@@ -3,32 +3,28 @@
 using namespace std;
 
 int main() {
-	int a, b,i;
+	int a, b;
 	
 	cout<<"Inserisci i due estremi in cui generare i numeri separati da uno spazio \" \"\n";
 	cin>>a>>b;
 	
 	cout<<endl;
 	
-	if (a<b) {
-		i = a;
-		while (b>i) {
-			cout<<i;
-			if (i%10==0) cout<<endl;
-			else cout<<", ";
-			i++;
-		}
+	if (a>b)  {
+	  int c=a;
+	  a = b;
+	  b = c;
+  }
+  if(a==b) cout<<a<<"\n\n\nNB: i due valori inseriti sono identici: "<<a<<", "<<b;
+  else {
+  	while (b>a) {
+  		cout<<a;
+  		if (a%10==0) cout<<endl;
+  		else cout<<", ";
+  		a++;
+	  }
 		cout<<b;
-	} else if (a>b) {
-		i = b;
-		while (a>i) {
-			cout<<i;
-			if(i%10==0) cout<<endl;
-			else cout<<", ";
-			i++;
-		}
-		cout<<a;
-	} else cout<<a<<"\n\n\nNB: i due valori inseriti sono identici: "<<a<<", "<<b;
+	}
 	//cout<<"\n"<<a<<"\t"<<b<<"\t"<<i;//debug
 	
 	cout<<endl;
