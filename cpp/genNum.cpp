@@ -1,11 +1,8 @@
 #include <iostream>
-#include <stdlib.h>
-#include <time.h>
 
 using namespace std;
 
 int main() {
-	srand(time(0));
 	int a, b,i;
 	
 	cout<<"Inserisci i due estremi in cui generare i numeri separati da uno spazio \" \"\n";
