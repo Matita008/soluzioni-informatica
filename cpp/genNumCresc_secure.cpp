@@ -16,16 +16,16 @@ int main() {
     if(num<=0) cout<<"\nInserisci un valore positivo!!\nRiprova\n";
   } while(num <= 0);
   
-  MAX = pow(2, sizeof(int) * 8)/num - num;
-  cout<<MAX<<endl;
+  MAX = pow(2, (sizeof(int) - 1) * 8)/num;
+  //cout<<MAX<<endl;
   while(i<=num) {
-    curr = rand() %(MAX * i);
+    curr = rand() %MAX + prec;
     //cout<<"ca: "<<curr<<" ";
-    if(curr>prec) {
-      cout<<curr<<" ";
+      cout<<curr;
+      if(i%5) cout<<", ";
+      else cout<<endl;
       prec = curr;
       i++;
-    }
   }
   
   cout<<endl;
