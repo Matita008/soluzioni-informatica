@@ -4,5 +4,5 @@ using namespace std;
 
 int main() {
   cout<<endl;
-	system("pause");
+  system("pause");
 }
