@@ -15,7 +15,6 @@ int main() {
     if(pos%10 == 0 && pos != 90) pos+=lancio;//altrimenti sfora sempre
     if(pos>90) pos-=(pos%90) *2;
     lanci++;
-    cout<<lancio<<" posizione: "<<pos<<" lanci: "<<lanci<<endl;//debug
   }
   cout<<"Per raggiungere la fine sono stati necessari "<<lanci<<" lanci";
   cout<<endl;
