@@ -7,11 +7,11 @@ int main() {
   cout<<"Inserisci il numero: ";
   cin>>n;
   for(int i = 2; i * i < n; i+=2) {
-    if(n %i == 0) { //se è un divisore lo salvo ed esco dal loop
+    if(n %i == 0) { //se Ã¨ un divisore lo salvo ed esco dal loop
       div = i;
       break;
     }
-    if(i==2) i--; //il primo è 2, gli altri vanno di 2 in 2 tra i dispari
+    if(i==2) i--; //il primo divisore possibile Ã¨ 2, gli altri vanno di 2 in 2 tra i dispari quidi diminuisco di 1 il contatore (i) se Ã¨ 2
   }
   if(div == 0) {
     cout<<"Il numero inserito e' primo!";
