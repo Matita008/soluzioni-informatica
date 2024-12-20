@@ -6,7 +6,7 @@ int main() {
   int n, div = 0;
   cout<<"Inserisci il numero: ";
   cin>>n;
-  for(int i = 2; i * i < n; i+=2) {
+  for(int i = 2; i * i <= n; i+=2) {
     if(n %i == 0) { //se è un divisore lo salvo ed esco dal loop
       div = i;
       break;
