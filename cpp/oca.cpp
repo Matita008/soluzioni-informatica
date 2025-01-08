@@ -12,7 +12,7 @@ int main() {
     int lancio = rand()%6 + 1;
     pos+=lancio;
     if(pos%7 == 0) lanci++;
-    if(pos%10 == 0 && pos != 90) pos+=lancio;//altrimenti sfora sempre
+    if(pos%10 == 0 && pos != 90) pos+=lancio;//diverso da 90 altrimenti sfora sempre
     if(pos>90) pos-=(pos%90) *2;
     lanci++;
   }
