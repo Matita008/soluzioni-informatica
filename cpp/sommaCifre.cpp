@@ -7,7 +7,6 @@ int main() {
   int c1 = 0, c2 = 0, c3 = SOMMA;
   while(c1 != SOMMA){
     cout<<c1<<c2<<c3<<", ";
-    //if(c1 == 2) break;
     if(c3 == 0) {
         c1++;
         c2 = 0;
