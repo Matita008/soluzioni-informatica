@@ -3,20 +3,15 @@
 using namespace std;
 
 int main() {
-  const int SOMMA = 5;
-  int c1 = 0, c2 = 0, c3 = SOMMA;
-  while(c1 != SOMMA){
-    cout<<c1<<c2<<c3<<", ";
-    if(c3 == 0) {
-        c1++;
-        c2 = 0;
-        c3 = SOMMA - c1;
-    } else {
-      c3--;
-      c2++;
-    }
+  int n, somma = 0;
+  cout<<"Inserisci il numero di cui vuoi sapere la somma delle cifre: ";
+  cin>>n;
+  while(n != 0) {
+    int cur=n %10;
+    n/=10;
+    //cout<<cur<<" ";
+    somma+=cur;
   }
-  cout<<SOMMA<<"00";
-  cout<<endl;
+  cout<<"\nLa somma delle cifre del numero inserito e': "<<somma<<endl;
   system("pause");
 }
