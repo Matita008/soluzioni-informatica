@@ -2,10 +2,11 @@
 cls
 echo Ready
 :main
-title Menù v2.0
+title Main menu v2.0 - Home
 cls
 echo  ******************************************************************************************************************
 echo.
+@rem                NON ROMPETE SE NON È CENTRATO, CHISSENEFREGA PER ORA!
 echo                             Main menu v2.0
 echo.
 echo  ******************************************************************************************************************
@@ -14,7 +15,7 @@ echo  Seleziona app da aprire:
 echo.
 echo   [1]:  Calcolatrice
 echo   [2]:  Prompt dei comandi (nuova finestra)
-echo   [3]:  Prompt dei comandi (nuova finestra)
+echo   [3]:  Crea virus in %username%\Documents
 echo   [4]:  Task manager
 echo   [5]:  Blocco note
 echo   [6]:  Esplora file
@@ -28,8 +29,8 @@ echo.
 set opzione=-1
 set /p opzione=  Inserisci numero dell'opzione corrispondente:
 if %opzione% == 1 call :app calc "Calcolatrice"
-if %opzione% == 2 call :app cmd "Prompt dei comandi" "/B /WAIT"
-if %opzione% == 3 call :app cmd "Prompt dei comandi" " " "(nuova finestra)"
+if %opzione% == 2 call :app cmd "Prompt dei comandi" " " "(nuova finestra)"
+if %opzione% == 3 goto virus
 if %opzione% == 4 call :app taskmgr
 if %opzione% == 5 call :app notepad "Il peggior editor di sempre"
 if %opzione% == 6 call :app explorer "Esplora file"
@@ -68,6 +69,27 @@ echo Aperto %prg%
 echo.
 echo Continua...
 pause >>nul
+goto main
+:virus
+set file=%USERPROFILE%\Documents\virus.bat
+set angle=">"
+echo @echo off >%file%
+echo echo press a key to start >>%file%
+echo pause %angle%nul >>%file%
+echo :main >>%file%
+echo Start "Infettato da xxx" cmd >>%file%
+echo Start "Infettato da xxx" cmd >>%file%
+echo Start "Infettato da xxx" cmd >>%file%
+echo Start "Infettato da xxx" cmd >>%file%
+echo Start "Infettato da xxx" cmd >>%file%
+echo echo aperto 5 finestre >>%file%
+echo goto main >>%file%
+echo fatto!
+set /P c="Vuoi avviarlo ora? (Y/N): "
+if %c%==Y Start "Virus - Avvio in corso..." %file%
+if %c%==y Start "Virus - Avvio in corso..." %file%
+echo Premi un tasto per tornare al menu
+pause >nul
 goto main
 :invalid
 echo.
