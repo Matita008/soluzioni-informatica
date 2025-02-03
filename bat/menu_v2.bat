@@ -26,7 +26,8 @@ echo   [10]: Apri un programma personalizzato
 echo   [0]:  Esci
 echo.
 @rem di base le variabili sono a 0, la imposto a -1 cosicché se l'input è nullo va in errore e non esce o riesegue l'operazione precedente
-set opzione=-1
+set opzione = -1
+set fl = 0
 set /p opzione=  Inserisci numero dell'opzione corrispondente:
 if %opzione% == 1 call :app calc "Calcolatrice"
 if %opzione% == 2 call :app cmd "Prompt dei comandi" " " "(nuova finestra)"
@@ -37,16 +38,13 @@ if %opzione% == 6 call :app explorer "Esplora file"
 if %opzione% == 7 call :app "java -version" "Ecco i dettagli sull'installazione corrente: "
 if %opzione% == 8 call :app menu
 if %opzione% == 9 call :app menu "Menu.bat" "/B" "In una nuova finestra"
-if %opzione% == 10 goto selectApp
-if %opzione% == 202  call :app "C:\Users\matti\Desktop\mattia\gg\md\Mindustry" "yk"
+if %opzione% == 10 goto premium
 if %opzione% == 0 (goto exit) else goto invalid
-echo.
-echo HOW?
-echo.
-goto invalid
+
 :app
 REM @echo on
 set name=%~2
+set fl = 1
 if "%name%"=="" set name=%~1
 echo.
 echo Hai aperto %name% %~4
@@ -60,16 +58,8 @@ REM @echo off
 echo.
 echo Continua...
 pause>>nul
-goto main
-:selectApp
-set /p prg=Inserisci nome/percorso eseguibile:
-%prg%
-echo.
-echo Aperto %prg%
-echo.
-echo Continua...
-pause >>nul
-goto main
+goto exit
+
 :virus
 set file=%USERPROFILE%\Documents\virus.bat
 set angle=">"
@@ -91,10 +81,12 @@ if %c%==y Start "Virus - Avvio in corso..." %file%
 echo Premi un tasto per tornare al menu
 pause >nul
 goto main
+
 :invalid
 echo.
 color 04
 if %opzione% == -1 goto nullInput
+if %fl% == 1 goto main
 echo Bad input, press a key to repeat
 pause >nul
 color 0F
@@ -108,8 +100,29 @@ echo Premi un tasto qualsiasi per tornare al menu principale
 pause >nul
 color 0F
 goto main
+
+:selectApp
+set /p prg=Inserisci nome/percorso eseguibile:
+%prg%
+echo.
+echo Aperto %prg%
+echo.
+echo Continua...
+pause >>nul
+goto preminmM
+
+:premium
+:premiumM
+set opzione=-1
+set fl = 0
+set /p opzione=  Inserisci numero dell'opzione corrispondente:
+if %opzione% == 1 goto selectApp
+if %opzione% == 2  call :app "C:\Users\matti\Desktop\mattia\gg\md\Mindustry" "yk"
+if %opzione% == 3 goto main
+if %opzione% == 4 goto exit
+if %opzione% == 5 goto selectApp
+goto preminumM
 :exit
 echo.
-echo Premi un tasto per uscire
+echo Premi un tasto per terminare
 pause >nul
-exit

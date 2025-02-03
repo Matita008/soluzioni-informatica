@@ -7,6 +7,7 @@ echo.
 echo %1
 @rem nul è nullo,quello che viene messo come output di pause è dove va a scrivere "Premere un tasto per continuare"
 REM pause>prova.txt
+title Menu di Matita
 :main
 cls
 echo  ******************************************************************************************************************
@@ -43,6 +44,8 @@ if %opzione% == 8 call :app menu
 if %opzione% == 9 call :app menu "Menu.bat" "/B" "In una nuova finestra"
 if %opzione% == 10 goto selectApp
 if %opzione% == 202  call :app "C:\Users\matti\Desktop\mattia\gg\md\Mindustry" "yk"
+if %opzione% == 202 call :app "C:\Users\matti\Desktop\mattia\gg\md\Mindustry" "yk" "" "@gg\md"
+if %opzione% == 104 goto ohno104
 if %opzione% == 0 (goto exit) else goto invalid
 echo.
 echo HOW?
@@ -71,7 +74,18 @@ set /p prg=Inserisci nome/percorso eseguibile:
 echo.
 echo Aperto %prg%
 echo.
+%prg%
+echo.
 echo Continua...
+pause>>nul
+goto main
+:ohno104
+echo Bene, ora dammi tua M**r* >104.txt
+echo. >>104.txt
+notepad 104.txt
+del 104.txt
+echo.
+echo Premi un tasto per richiederla pure tu...
 pause>>nul
 goto main
 :invalid
