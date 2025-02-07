@@ -18,9 +18,16 @@ int main() {
   }
   
   for(int i = 0; i<DIM; i++) {
-    if(arr1[i] != arr2[i]) diff = true;
+    for(int j = 0; j<DIM; j++) {
+      if(arr1[i] != arr2[j]) {
+        diff = false;
+        break;
+      }
+    }
+    if(diff) break;
   }
   
-  cout<<diff<<endl;
-  system("pause");
+  cout<<(diff ? "\nSbagliato" : "\nGiusto")<<endl;
+  cout<<"\n\nPremi un tasto per uscire...";
+  system("pause >nul");
 }
