@@ -15,7 +15,7 @@ int main() {
   }
   
   work = arr[0];
-  for(int i = 1; i<LEN; i++) {
+  for(int i = 1; i<LEN - 1; i++) {
     bool cur = arr[i];
     work = (work || cur) && !(work == cur);
   }
