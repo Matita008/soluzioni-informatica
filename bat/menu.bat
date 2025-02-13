@@ -43,7 +43,6 @@ if %opzione% == 7 call :app "java -version" "Ecco i dettagli sull'installazione 
 if %opzione% == 8 call :app menu
 if %opzione% == 9 call :app menu "Menu.bat" "/B" "In una nuova finestra"
 if %opzione% == 10 goto selectApp
-if %opzione% == 202  call :app "C:\Users\matti\Desktop\mattia\gg\md\Mindustry" "yk"
 if %opzione% == 202 call :app "C:\Users\matti\Desktop\mattia\gg\md\Mindustry" "yk" "" "@gg\md"
 if %opzione% == 104 goto ohno104
 if %opzione% == 0 (goto exit) else goto invalid
@@ -52,25 +51,24 @@ echo HOW?
 echo.
 goto invalid
 :app
-REM @echo on
+ @echo on
 set name=%~2
 if "%name%"=="" set name=%~1
 echo.
 echo Hai aperto %name% %~4
 if "%~3"=="" goto appIf
-start "%~2" %~3 %~1
+start "%name%" %~1 %~3
 goto appIfEnd
 :appIf
 %~1
 :appIfEnd
-REM @echo off
+@echo off
 echo.
 echo Continua...
 pause>>nul
 goto main
 :selectApp
 set /p prg=Inserisci nome/percorso eseguibile:
-%prg%
 echo.
 echo Aperto %prg%
 echo.

@@ -6,7 +6,7 @@ int main() {
   int num1, num2, r;
   do {
     cout<<"Inserisci i due valori di cui vuoi trovare l'MCD separandoli con uno spazio \" \": ";
-    cin>>num1>>num2;
+    cin>>num1;cin>>num2;
     if(num1<1 || num2<1) cout<<"\nUno dei numeri inseriti e' <0, Riprova!\n";
   } while(num1<1 || num2<1);
 
