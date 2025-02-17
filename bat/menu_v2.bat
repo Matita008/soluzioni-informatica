@@ -236,8 +236,8 @@ echo   [2]:  Visiona versione di java installata (se presente)
 echo   [3]:  Apri la guida di un comando (se disponibile)
 echo   [4]:  Calcolatrice
 echo   [5]:  Calcolatrice
-echo   [6]:  Calcolatrice
-echo   [7]:  Calcolatrice
+echo   [6]:  Fai ping ^& traceroute
+echo   [7]:  Pinga tutti gli ip in un range
 echo   [8]:  Torna alla versione standard
 echo   [9]:  Esci
 echo.
@@ -250,12 +250,13 @@ if %opzione% == 2 call :app "java -version" "Ecco i dettagli sull'installazione 
 if %opzione% == 3 goto guidaCmds
 if %opzione% == 4 call :app calc
 if %opzione% == 5 call :app calc
-if %opzione% == 6 call :app calc
-if %opzione% == 7 call :app calc
+if %opzione% == 6 goto pingTrace
+if %opzione% == 7 goto pingAll
 if %opzione% == 8 goto main
 if %opzione% == 9 goto end
-if %opzione% == 10  call :app "C:\Users\matti\Desktop\mattia\gg\md\Mindustry" "yk"
+if %opzione% == 11  call :app "C:\Users\matti\Desktop\mattia\gg\md\Mindustry" "yk"
 echo %opzione% non riconosciuto, riprova
+goto invalid
 pause >nul
 goto premiumMenu
 
@@ -264,14 +265,31 @@ set /p curCmds="Inserisci il comando di cui si intende visionare la guida: "
 if not "%prevCmds%" == "%curCmds%" (set par=/?) else set par=-help
 echo.
 %curCmds% %par%
-echo %errorlevel%
+::echo %errorlevel%
 echo.
 echo Fine guida!
 echo In caso non ci fosse la guida riprova
 echo E se dopo due tentativi non la mostra -,- mi spiace, non so come mostrarla \_:,:_/
 echo.
-echo %prevCmds% / %curCmds%
+::echo %prevCmds% / %curCmds%
 set prevCmds=%curCmds%
+echo Premi un tasto per tornare al menu...
+echo.
+pause >nul
+goto return
+
+:pingAll
+set /p ip="ip(no trailing '.'): "
+for /L %%I in (0,1,255) do ping %ip%.%%I
+echo Premi un tasto per tornare al menu...
+echo.
+pause >nul
+goto return
+
+:pingTrace
+set /p ip=ip:
+ping %ip%
+traceroute %ip%	
 echo Premi un tasto per tornare al menu...
 echo.
 pause >nul
