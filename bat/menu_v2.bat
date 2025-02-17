@@ -22,6 +22,7 @@ echo   [5]:  Blocco note
 echo   [6]:  Esplora file
 echo   [7]:  Visiona versione di java installata (se presente)
 ::     /\ va rimossa
+::     nope, basta prendere il codice e rendere lìaltra più carina
 echo   [8]:  Riaprimi qui
 echo   [9]:  Aprimi in una nuova finestra
 echo   [10]: Passa alla versione premium
@@ -233,9 +234,12 @@ echo.
 echo   [0]:  Seleziona app da aprire
 echo   [1]:  Crea virus in %username%\Documents
 echo   [2]:  Visiona versione di java installata (se presente)
+::     TODO: fallo genio
 echo   [3]:  Apri la guida di un comando (se disponibile)
 echo   [4]:  Calcolatrice
+::     che famo?
 echo   [5]:  Calcolatrice
+::     abbiamo detto un'elenco di comandi?
 echo   [6]:  Fai ping ^& traceroute
 echo   [7]:  Pinga tutti gli ip in un range
 echo   [8]:  Torna alla versione standard
