@@ -5,12 +5,13 @@ echo Ready
 title Main menu v2.0 - Home
 color 0B
 cls
-echo  ******************************************************************************************************************
+echo  **********************************************************************************************************
 echo.
 @rem                NON ROMPETE SE NON È CENTRATO, CHISSENEFREGA PER ORA!
-echo                             Main menu v2.0
+::          24/02      Fatto rompiscatole
+echo                                                Main menu v2.0
 echo.
-echo  ******************************************************************************************************************
+echo  **********************************************************************************************************
 echo.
 echo  Seleziona app da aprire:
 echo.
@@ -22,7 +23,8 @@ echo   [5]:  Blocco note
 echo   [6]:  Esplora file
 echo   [7]:  Visiona versione di java installata (se presente)
 ::     /\ va rimossa
-::     nope, basta prendere il codice e rendere lìaltra più carina
+::     nope, basta prendere il codice e rendere l'altra più carina
+REM                                          wat?
 echo   [8]:  Riaprimi qui
 echo   [9]:  Aprimi in una nuova finestra
 echo   [10]: Passa alla versione premium
@@ -38,11 +40,38 @@ if %opzione% == 3 goto virus
 if %opzione% == 4 call :app taskmgr
 if %opzione% == 5 call :app notepad "Il peggior editor di sempre"
 if %opzione% == 6 call :app explorer "Esplora file"
-if %opzione% == 7 call :app "java -version" "Ecco i dettagli sull'installazione corrente: "
+if %opzione% == 7 goto baseJava
 if %opzione% == 8 call :app menu
 if %opzione% == 9 call :app menu "Menu.bat" "/B" "In una nuova finestra"
 if %opzione% == 10 goto premium
 if %opzione% == 0 (goto end) else goto invalid
+
+:invalid
+:: \/ se opzione è settata a 404 il call è finito, e siamo andati a EOF 
+if %opzione% == 404 goto return
+echo.
+color 04
+if %opzione% == -1 goto nullInput
+echo Bad input, press a key to repeat
+pause >nul
+color 0F
+goto return
+:nullInput
+echo Non hai inserito un numero!
+echo.
+echo Riprova!
+echo.
+echo Premi un tasto qualsiasi per tornare al menu principale
+pause >nul
+color 0F
+goto return
+
+:return
+if %fl% == 1 goto main
+if %fl% == 2 goto premiumMenu
+echo invalid flag value: %fl%
+pause >nul
+goto main
 
 :app
 REM @echo on
@@ -64,20 +93,18 @@ goto return
 
 :virusPr
 set file=%USERPROFILE%\Documents\virus.bat
-set angle=^>
 set /P from="Nome virus: "
 set /P num="Numero di finestre da aprire: "
 goto virusMain
 
 :virus
 set file=%USERPROFILE%\Documents\virus.bat
-set angle=^>
 set from=xxxxx
 set num=2
 :virusMain
 echo @echo off >%file%
 echo echo press a key to start >>%file%
-echo pause %angle%nul >>%file%
+echo pause ^>nul >>%file%
 echo :main >>%file%
 for /L %%i IN (1,1,%num%) DO echo Start "Infettato da %from% - %%i" cmd >>%file%
 echo echo aperto %num% finestre >>%file%
@@ -95,24 +122,6 @@ echo Premi un tasto per tornare al menu
 pause >nul
 goto return
 
-:invalid
-echo.
-color 04
-if %opzione% == -1 goto nullInput
-echo Bad input, press a key to repeat
-pause >nul
-color 0F
-goto return
-:nullInput
-echo Non hai inserito un numero!
-echo.
-echo Riprova!
-echo.
-echo Premi un tasto qualsiasi per tornare al menu principale
-pause >nul
-color 0F
-goto return
-
 :selectApp
 set /p prg=Inserisci nome/percorso eseguibile:
 %prg%
@@ -123,18 +132,21 @@ echo Continua...
 pause >>nul
 goto return
 
-:return
-if %fl% == 1 goto main
-if %fl% == 2 goto premiumMenu
-echo invalid flag value: %fl%
-pause >nul
-goto main
+:baseJava
+::2>%1 serve a reindirizzare stderr a stoud
+java -version >NUL 2>&1
+if not %ERRORLEVEL% == 0 (
+	echo Java non è presente sul dispositivo corrente o ^%path^% non contiene il percorso di java
+	goto return
+	)
+goto return
 
 :premium
 set key="Qwertyuiop.20250203-MatitaKey@MTI5NTcwMjQwNTU2ODEzNTIzOA_java-jar paper.jar:economyPl:io.matita08.economy.Economy.main{String[] args} "
 if exist %appdata%\matita08\menu\2.0\license.license goto licenseCheck
 :premiumQ
 set /P lic="Vuoi comprare/attivare una licenza per la versione premium? (s/n): "
+@rem poichè non 
 if %lic% == n goto main
 if %lic% == N goto main
 if %lic% == no goto main
@@ -233,7 +245,7 @@ color 0E
 cls
 echo  ******************************************************************************************************************
 echo.
-echo                             Main menu v2.0 premium
+echo                                                Main menu v2.0 premium
 echo.
 echo  ******************************************************************************************************************
 echo.
@@ -246,6 +258,7 @@ echo   [2]:  Visiona versione di java installata (se presente)
 echo   [3]:  Apri la guida di un comando (se disponibile)
 echo   [4]:  Calcolatrice
 ::     che famo?
+::       guida comandi
 echo   [5]:  Calcolatrice
 ::     abbiamo detto un'elenco di comandi?
 echo   [6]:  Fai ping ^& traceroute
@@ -299,7 +312,7 @@ pause >nul
 goto return
 
 :pingTrace
-set /p ip=ip:
+set /p ip=ip di cui si desidera conoscere di piu':
 ping %ip%
 traceroute %ip%	
 echo Premi un tasto per tornare al menu...
