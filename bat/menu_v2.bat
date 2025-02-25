@@ -41,8 +41,8 @@ if %opzione% == 4 call :app taskmgr
 if %opzione% == 5 call :app notepad "Il peggior editor di sempre"
 if %opzione% == 6 call :app explorer "Esplora file"
 if %opzione% == 7 goto baseJava
-if %opzione% == 8 call :app menu
-if %opzione% == 9 call :app menu "Menu.bat" "/B" "In una nuova finestra"
+if %opzione% == 8 call :app cmd "Prompt dei comandi"
+if %opzione% == 9 call :app menu_v2 "Menu.bat" "/I" "In una nuova finestra"
 if %opzione% == 10 goto premium
 if %opzione% == 0 (goto end) else goto invalid
 
@@ -74,7 +74,6 @@ pause >nul
 goto main
 
 :app
-REM @echo on
 set name=%~2
 if "%name%"=="" set name=%~1
 echo.
