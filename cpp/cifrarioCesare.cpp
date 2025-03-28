@@ -25,7 +25,7 @@ int main() {
 
 string cifra(string s, int key) {
   
-  key = key%25;  //z = 26, a = 1
+  key = key%26;  //z = 26, a = 1 //se è 26 equivale a non fare nulla
   if(key == 0) return s; // se la chiave è 0 (o %26==0) non devo cambiare nulla
   for(int i = s.length() - 1; i >= 0; i--) {
     //cout<<s[i]<<" "<<shift(s[i], key)<<" "<<i<<endl;
@@ -41,8 +41,17 @@ string decifra(string s, int key) {
 char shift(char c, int pos) {
   if(!isalpha(c)) return c;
   char s = c + pos;
-  if(c <= 'Z' && s > 'Z') s-='Z'-'A';
-  else if(s > 'z') s-='z'-'a';
+  cout<<s<<" ";
+  if(c <= 'Z' && s > 'Z') {
+    s-='Z'-'A'+1;
+    cout<<" AA ";
+  }
+  if(s > 'z' || s<1) {
+    s-='z'-'a'+1;
+    cout<<" aa ";
+  }
+  else cout<<(int) s<<" ";
+  //else if(s < 'a') s+='z'-'a'-1;
   cout<<c<<" "<<s<<" "<<pos<<endl;
   return s;
 }
