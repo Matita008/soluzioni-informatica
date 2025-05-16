@@ -60,7 +60,7 @@ int main() {
     float media;
     
     cout<<"\nInserisci nome materia "<<i<<": ";
-    cin>>mat;
+    getline(cin, mat);
     cout<<" Inserisci media di "<<mat<<": ";
     cin>>media;
     
